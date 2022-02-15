@@ -60,19 +60,32 @@ class Solution {
         if(counter == n){
             return head.next;
         }
-
         int temp = counter-n-1;
-
         curr= head;
-
         while(temp>0){
             curr=curr.next;
             temp--;
         }
-
         curr.next= curr.next.next;
 
         return head;
 
     }}
+
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode fast = head;
+        ListNode slow = head;
+        while (n > 0) {
+            fast = fast.next;
+            n--;
+        }
+        while (slow.next != null && fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        return head;
+    }
+}
 //leetcode submit region end(Prohibit modification and deletion)

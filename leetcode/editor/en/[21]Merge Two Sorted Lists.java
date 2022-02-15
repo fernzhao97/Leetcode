@@ -51,7 +51,30 @@
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        
+        ListNode prev = new ListNode(0);
+        ListNode curr = prev;
+        while(list1 != null && list2 != null){
+            if(list1.val < list2.val){
+                curr.next = list1;
+                list1 = list1.next;
+                curr = curr.next;
+            }
+            else{
+                curr.next = list2;
+                list2 = list2.next;
+                curr = curr.next;
+            }
+        }
+
+        //after while loop if l1 is empty l2 still have items. add l2 at last
+        //if l2 is empty add l1
+        if(list1 == null && list2!=null){
+            curr.next = list2;
+        }
+        if(list2 == null && list1!=null){
+            curr.next = list1;
+        }
+        return prev.next;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -38,6 +38,7 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         ListNode curr = head;
@@ -54,4 +55,5 @@ class Solution {
 
     }
 }
+
 //leetcode submit region end(Prohibit modification and deletion)
